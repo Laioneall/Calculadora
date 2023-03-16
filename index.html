@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarea1</title>
+    <link rel="stylesheet" href="style1.css">
+    <link rel="stylesheet" href="./components/nav-bar/nav-bar.style.css">
+    <link rel="shortcut icon" href="../../img/version14.png" type="image/x-icon">
+</head>
+
+<header>
+  <div class="header-left">
+      <div class="logo">
+          <img src="../../img/Logo.png" alt="VersionDoLogo">
+      </div>
+     
+        <nav>
+          <div class="nav-menu">
+            <input type="checkbox" id="check">    
+            <label for="check" class="checkbtn">
+                <i class="menu-icon"><img src="../../img/menu-hamburger-svgrepo-com (1).svg" alt="icon-menu"></i>
+            </label>
+            <ul>
+                <li><a href="index.html">Notas</a></li>
+                <li><a href="index2.html">Suma de numeros</a></li>
+                <li><a href="index3.html">Fahrenheit a celsius</a></li>
+                <li><a href="index4.html">Numero Mayor</a></li>
+                <li><a href="index5.html">Contador de numeros</a></li>
+                <li><a href="index6.html">Par o impar</a></li>
+            </ul>
+        </div>
+          
+        </nav>
+     
+      
+  </div>
+
+     
+      </div>
+  </div>
+
+</header>
+
+
+<style>
+    
+
+   
+      h1 {
+        text-align: center;
+        color: #333;
+        padding-top: 170px;
+      }
+      label {
+        display: flexbox;
+        margin-bottom: 10px;
+        color: #333;
+        
+      }
+      input[type="text"] {
+        padding: 8px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        font-size: 16px;
+        width: 50%;
+        box-sizing: border-box;
+        
+
+      }
+      .label-input{
+        margin-top: 18px;
+        font-weight: 600;
+        letter-spacing: 1px;
+        font-size: 18px;
+        
+      }
+      .contain-wrap{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+
+
+      }
+      button {
+        background-color: #6bbe57;
+        color: #fff;
+        border-radius: 5px;
+        border: none;
+        padding: 10px 16px;
+        font-size: 13px;
+        cursor: pointer;
+        margin-top: 15px;
+      }
+      button:hover {
+        background-color: #3e8e41;
+      }
+      p {
+        font-size: 20px;
+        color: #333;
+        margin: 20px;
+        
+      }
+      span {
+        font-weight: bold;
+        color: #4CAF50;
+      }
+      .logo img{
+        max-width: 100%;
+        height: auto;
+        width: auto;
+      }
+      .error{
+        color: red;
+        margin: 10px;
+        
+      }
+      .normal{
+        
+        margin-top: 5px;
+        
+      }
+
+
+     
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+    
+</style>
+<body class="Tarea1">
+    
+    
+   
+    <div class="calculadora1">
+
+
+		<h1>Calculadora de notas</h1>
+    <div class="contain-wrap">
+		<label class="label-input">Notas:</label>
+		<input type="text" id="notas" placeholder=" Separe las notas por comas ( , ) ">
+<button id="calcular">Calcular promedio</button>
+<div id="resultado" class="normal"></div>
+
+	</div>
+</div>
+    
+
+    <script>
+
+const notasInput = document.getElementById("notas");
+const calcularButton = document.getElementById("calcular");
+const resultadoDiv = document.getElementById("resultado");
+
+function calcularPromedio() {
+  const notas = notasInput.value.split(",").map(nota => Number(nota.trim()));
+
+  if (notas.some(nota => isNaN(nota))) {
+    resultadoDiv.classList.add("error");
+    resultadoDiv.textContent = "Por favor, ingrese solo números";
+  } else {
+    const promedio = notas.reduce((sum, nota) => sum + nota) / notas.length;
+    resultadoDiv.classList.remove("error");
+    resultadoDiv.textContent = `Tu nota promedio es ${promedio.toFixed(2)}`;
+  }
+}
+
+
+
+calcularButton.addEventListener("click", calcularPromedio);
+
+
+
+    </script>
+</body>
+</html>
